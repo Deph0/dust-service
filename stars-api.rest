@@ -1,0 +1,66 @@
+# Extention Name: REST Client
+# Description: REST Client for Visual Studio Code
+# VS Marketplace Link: https://open-vsx.org/vscode/item?itemName=humao.rest-client
+
+# Define the base URL
+@baseUrl = http://localhost:3000
+
+# Define a variable for star ID
+@id = htptB5id5zBYXip1IA08 
+
+# Create a star
+POST {{baseUrl}}/stars
+Content-Type: application/json
+
+{
+  "world": 500,
+  "tier": 9,
+  "location": "Los Vegas",
+  "foundBy": "Deas2k18"
+}
+
+# "foundAt": "2025-04-21T20:49:38.624Z"
+# "updatedAt": null,
+# "calledAt": null,
+# "backup": true
+
+###
+
+# Get all stars
+GET {{baseUrl}}/stars
+
+###
+
+# Get a star by ID
+GET {{baseUrl}}/stars/{{id}}
+
+###
+
+# Update a star
+# Update only the fields you want to change
+PATCH {{baseUrl}}/stars/{{id}}
+Content-Type: application/json
+
+{
+  "world": 301, 
+  "tier": 8,
+  "calledAt": "2025-04-21T20:56:41.593Z",
+  "backup": false
+}
+
+  # "updatedAt": "2025-04-21T20:56:41.593Z",
+
+
+# Update the entire star object
+# PUT {{baseUrl}}/stars/{{id}}
+# Content-Type: application/json
+# {
+#   "name": "Jane Doe",
+#   "age": 31,
+#   "city": "Los Angeles"
+# }
+
+###
+
+# Delete a star
+DELETE {{baseUrl}}/stars/{{id}}
